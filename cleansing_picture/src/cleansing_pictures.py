@@ -3,7 +3,15 @@ import cv2
 import argparse
 
 
-def cleansing_picture(input_dir, resize_width):
+def cleansing_picture(input_dir:str, resize_width:int) -> dict:
+    """
+    Parameters:
+        input_dir:Input directory
+        resize_width:The width will be resized 
+    Returns:
+        imgs:Dictionary [file_name - img]
+    """
+    
     imgs = {}
     for file_name in os.listdir(input_dir):
         # print(file_name)
