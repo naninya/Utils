@@ -53,7 +53,6 @@ def save_cleansing_picture():
     parser.add_argument("--resize_width", type=str, default=150)
     args = parser.parse_args()
     input_dir = args.input_dir
-    
     resize_width = args.resize_width
     if not os.path.isdir("../output"):
         os.mkdir("../output")
