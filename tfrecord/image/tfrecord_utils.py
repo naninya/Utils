@@ -37,6 +37,10 @@ def image2tfrecord(img_dir, tfrecord_dir):
     img_file_names = os.listdir(img_dir)
     for index, img_file_name in enumerate(img_file_names):
         img_path = os.path.join(img_dir, img_file_name)
+        img_extension = os.path.splitext(img_file_name)[1]
+        
+        if img_extension not in [".png", ".jpg", ".jpeg"]:
+            continue
         try:
             output_path = os.path.join(tfrecord_dir, f"{os.path.splitext(img_file_name)[0]}.tfrecord")
         except Exception:

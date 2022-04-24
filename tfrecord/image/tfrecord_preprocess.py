@@ -3,9 +3,11 @@ import tensorflow as tf
 # HYPER PARAMETERS
 IMAGE_SIZE = 512
 SHUFFLE_BUFFER_SIZE = 512
-AUTOTUNE = tf.data.experimental.AUTOTUNE ## The Capacity for async
-strategy = tf.distribute.get_strategy() ##
-BATCH_SIZE = 2 * strategy.num_replicas_in_sync
+# AUTOTUNE = tf.data.experimental.AUTOTUNE ## The Capacity for async 
+# strategy = tf.distribute.get_strategy() ##
+# BATCH_SIZE = 2 * strategy.num_replicas_in_sync
+BATCH_SIZE = 2
+AUTOTUNE = 3
 
 def decode_image(image_raw):
     image = tf.image.decode_jpeg(image_raw, channels=3)
