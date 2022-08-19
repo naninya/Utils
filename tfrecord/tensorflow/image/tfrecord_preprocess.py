@@ -13,7 +13,6 @@ def decode_image(image_raw):
     image = tf.image.decode_jpeg(image_raw, channels=3)
     image = tf.image.resize(image, [IMAGE_SIZE, IMAGE_SIZE])
     image = tf.cast(image, tf.float32) / 255.0
-    
     return image
 
 def parse_tfrecord(tfrecord):
@@ -54,7 +53,6 @@ def augment(image):
     image = tf.image.random_saturation(image, 0.70, 1.30)
     image = tf.image.random_contrast(image, 0.80, 1.20)
     image = tf.image.random_brightness(image, 0.10)
-    
     return image
 
 
